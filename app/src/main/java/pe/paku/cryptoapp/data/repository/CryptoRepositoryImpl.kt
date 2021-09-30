@@ -10,7 +10,6 @@ class CryptoRepositoryImpl @Inject constructor(
     private val api: CryptoApi
 ) : CryptoRepository {
 
-
     override suspend fun getCryptos(): List<CryptoDTO> {
          return api.getCryptos()
     }
@@ -18,6 +17,5 @@ class CryptoRepositoryImpl @Inject constructor(
     override suspend fun getCryptoById(coinId: String): CryptoDetailDTO {
         return api.getDetailCrypto(coindId = coinId)
     }
-
 
 }
