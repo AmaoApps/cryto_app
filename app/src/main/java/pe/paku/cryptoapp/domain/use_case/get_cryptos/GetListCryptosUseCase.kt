@@ -20,12 +20,12 @@ class GetListCryptosUseCase @Inject constructor(
             //Loading of call
             emit(Resource.Loading())
             val cryptos = cryptoRepository.getCryptos().map { it.toCrypto() }
-            emit(Resource.Success(cryptos))
+            emit(Resource.Success<List<Crypto>>(cryptos))
 
         } catch (e: HttpException){
-            emit(Resource.Error(e.localizedMessage ?: "un Error acaba de ocurrir"))
+            emit(Resource.Error<List<Crypto>>(e.localizedMessage ?: "un Error acaba de ocurrir"))
         } catch (e: IOException) {
-            emit(Resource.Error("Couldn¡t reach server. Check your connection"))
+            emit(Resource.Error<List<Crypto>>("Couldn¡t reach server. Check your connection"))
         }
     }
 

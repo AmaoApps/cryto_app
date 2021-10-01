@@ -32,6 +32,7 @@ class CryptoDetailViewModel @Inject constructor(
     }
 
     private fun getCryptoDetail(cryptoId: String){
+      println("Id del Crypto -> " + cryptoId)
       getCryptoDetailUseCase(cryptoId).onEach { result ->
         when(result){
           is Resource.Success -> {

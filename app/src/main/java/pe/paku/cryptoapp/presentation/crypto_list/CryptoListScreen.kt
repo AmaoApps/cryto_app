@@ -32,7 +32,7 @@ fun CryptoListScreen(
                 CryptoListItem(
                     crypto = crypto,
                     onItemClick = {
-                        navController.navigate(Screen.CryptoDetailScreen.route+"/{${crypto.id}}")
+                        navController.navigate(Screen.CryptoDetailScreen.route+"/${crypto.id}")
                     }
                 )
             }

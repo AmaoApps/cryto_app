@@ -21,12 +21,12 @@ class GetCryptoDetailUseCase @Inject constructor(
 
             emit(Resource.Loading())
             val cryptoDetail = cryptoRepository.getCryptoById(crytoId).toCryptoDetail()
-            emit(Resource.Success(cryptoDetail))
+            emit(Resource.Success<CryptoDetail>(cryptoDetail))
 
         } catch (e: HttpException){
-            emit(Resource.Error(e.localizedMessage ?: "An Error just appeared right now"))
+            emit(Resource.Error<CryptoDetail>(e.localizedMessage ?: "An Error just appeared right now"))
         } catch (e: IOException){
-            emit(Resource.Error("We can't to connect to the server."))
+            emit(Resource.Error<CryptoDetail>("We can't to connect to the server."))
         }
 
     }
